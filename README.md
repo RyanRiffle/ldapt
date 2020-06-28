@@ -46,5 +46,5 @@ delete: pwdFailureTime
 
 **Unlock accounts**
 ```
-ldapt -D cn=admin -w secret -g unlock.template -b ou=testout,dc=testdc uid=* | ldapmodify -D cn=admin -w secret
+ldapt -D cn=admin -w secret -g unlock.template -b ou=testou,dc=testdc uid=* | ldapmodify -D cn=admin -w secret
 ```
