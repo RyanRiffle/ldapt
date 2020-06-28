@@ -1,0 +1,4 @@
+*.ldif
+*.pyc
+*.csv
+*.lt

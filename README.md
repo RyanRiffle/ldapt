@@ -78,6 +78,8 @@ sn: {{ last_name }}
 cn: {{ username }}
 uid: {{ username }}
 userPassword: {{ password }}
+
+
 ```
 
 **Create Accounts**
