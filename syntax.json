@@ -1,0 +1,37 @@
+{
+	"formatting": {
+		"separator": "=",
+		"dn": {
+			"color": "",
+			"bold": false,
+			"underline": false,
+			"prefix": ""
+		},
+		"attributes": {
+			"czolor": "",
+			"bold": false,
+			"underline": false,
+			"indent": 0,
+			"prefix": ""
+		}
+	},
+
+	"filters": [
+		{
+			"value": "false",
+			"color": "red"
+		},
+		{
+			"value": "true",
+			"color": "green"
+		},
+		{
+			"value": "FALSE",
+			"color": "red"
+		},
+		{
+			"value": "TRUE",
+			"color": "green"
+		}
+	]
+}
