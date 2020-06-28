@@ -31,6 +31,8 @@ optional arguments:
 ```
 
 ## Examples Scenarios
+
+### Bulk Unlocking Accounts
 Create an LDIF to unlock all accounts belonging to OU. Please note that in the template the two blank lines are necessary.
 
 **unlock.template**
@@ -47,4 +49,38 @@ delete: pwdFailureTime
 **Unlock accounts**
 ```
 ldapt -D cn=admin -w secret -g unlock.template -b ou=testou,dc=testdc uid=* | ldapmodify -D cn=admin -w secret
+```
+
+### Create Accounts in CSV
+
+Create an LDIF to add accounts with information from a CSV
+
+**accounts.csv**
+```
+full_name,first_name,last_name,email,username,password
+User, Test1,Test1,User,test1.user@example.com,tuser1,secret
+User, Test2,Test2,User,test2.user@example.com,tuser2,secret
+User, Test3,Test3,User,test3.user@example.com,tuser3,secret
+User, Test4,Test4,User,test4.user@example.com,tuser4,secret
+User, Test5,Test5,User,test5.user@example.com,tuser5,secret
+User, Test6,Test6,User,test6.user@example.com,tuser6,secret
+```
+
+**create.template**
+```
+dn: uid={{ username }},ou=testou,dc=testdc
+objectclass: top
+objectclass: inetorgperson
+objectclass: organizationalPerson
+objectclass: person
+mail: {{ email }}
+sn: {{ last_name }}
+cn: {{ username }}
+uid: {{ username }}
+userPassword: {{ password }}
+```
+
+**Create Accounts**
+```
+template -c accounts.csv create.template | ldapadd -D cn=admin -w secret
 ```
